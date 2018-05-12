@@ -14,6 +14,5 @@ class Playlist extends Component {
   }
 }
 
-
 export default Playlist;
 
