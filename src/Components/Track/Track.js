@@ -25,10 +25,10 @@ class Track extends Component {
 
   /* ternary operator used to reduce code of this if/else statement which displays a + or a - dependant on the boolean return value from this.props.isRemoval */
   renderAction() {
-          if (this.props.isRemoval) {
-              return <a className="Track-action" onClick={this.removeTrack}>-</a>;
-          }
-          return <a className="Track-action" onClick={this.addTrack}>+</a>;
+    if (this.props.isRemoval) {
+      return <a className="Track-action" onClick={this.removeTrack}>-</a>;
+    }
+      return <a className="Track-action" onClick={this.addTrack}>+</a>;
   }
 }
 
