@@ -9,17 +9,17 @@ class App extends Component {
     super(props);
     this.state = {
       searchResults: [{
-        'name': '',
-        'artist': '',
-        'album': '',
-        'id': '',
+        name: '',
+        artist: '',
+        album: '',
+        id: ''
       }],
-        'playlistName': '',
-        'playlistTracks': [{
-          'name': '',
-          'artist': '',
-          'album': '',
-          'id': ''
+        playlistName: '',
+        playlistTracks: [{
+          name: '',
+          artist: '',
+          album: '',
+          id: ''
         }]
     };
     this.addTrack = this.addTrack.bind(this);
@@ -48,7 +48,7 @@ class App extends Component {
 
   savePlaylist() {
     let trackURIs = [
-
+      this.state.playlistTracks.map(track => track.uri)
     ];
   }
 
