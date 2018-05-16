@@ -1,30 +1,76 @@
 const clientID = '7d94a5e1cace40a68652e53a5f195f6f';
 const redirectURI = 'http://localhost:3000/';
-let userAccessToken = '';
-let urlAccessToken = '/access_token=([^&]*)/';
-let urlExpiresIn = '/expires_in=([^&]*)/';
+let accessToken = '';
 
 const Spotify = {
   getAccessToken() {
-    if (userAccessToken) {
-      return userAccessToken;
-    };
+    if (accessToken) {
+      return accessToken;
+    }
 
-    const currentURL = window.location.href;
-    let urlAccessTokenMatch = currentURL.match(urlAccessToken);
-    let urlExpiresInMatch = currentURL.match(urlExpiresIn);
+    const accessTokenMatch = window.location.href.match(/access_token=([^&]*)/);
+    const expiresInMatch = window.location.href.match(/expires_in=([^&]*)/);
 
-    if (userAccessToken && urlExpiresIn) {
-      userAccessToken = urlAccessTokenMatch[1];
-      const expiresIn = urlExpiresInMatch[1];
+    if (accessTokenMatch && expiresInMatch) {
+      accessToken = accessTokenMatch[1];
+
+      const expiresIn = Number(expiresInMatch[1]);
+
       window.setTimeout(() => accessToken = '', expiresIn * 1000);
-      window.history.pushState('Access Token', null, '/');
-      return userAccessToken;
+      window.history.pushState('Access Token', null, '/'); // This clears the parameters, allowing a new access token when it expires.
+      return accessToken;
     } else {
-      window.location.replace(`https://accounts.spotify.com/authorize?client_id=${clientID}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectURI}`)
-    };
-  }
-};
+      const accessUrl = `https://accounts.spotify.com/authorize?client_id=${clientID}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectURI}`;
+
+      window.location = accessUrl;
+
+    }
+
+  },
+
+  search(term) {
+
+    const accessToken = Spotify.getAccessToken();
+
+    return fetch(`https://api.spotify.com/v1/search?type=track&q=${term}`, {
+
+      headers: {
+
+        Authorization: `Bearer ${accessToken}`
+
+      }
+
+    }).then(response => {
+
+      return response.json();
+
+    }).then(jsonResponse => {
+
+      if (!jsonResponse.tracks) {
+
+        return [];
+
+      }
+
+      return jsonResponse.tracks.items.map(track => ({
+
+        id: track.id,
+
+        name: track.name,
+
+        artist: track.artists[0].name,
+
+        album: track.album.name,
+
+        uri: track.uri
+
+      }));
+
+    });
+
+  },
+
+}
 
 export default Spotify;
 
