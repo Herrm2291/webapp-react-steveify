@@ -6,7 +6,7 @@
 - Added a reset.css file in the public folder and linked it in index.html
 - Imported Google fonts in index.html
 - Updated favicon.ico
-- Created the static components (App, SearchBar, SearchResults, Playlist, Tracklist and Track) with accompanying CSS files, each in their own folders, located under /src/Components/
+- Created the static components (App, SearchBar, SearchResults, Playlist, Tracklist and Track) with accompanying CSS files, each in their own folders, located in /src/Components/
 - Passed the state of a search results parameter through the SearchResults and TrackList components to render an array of tracks.  When a user requests data from Spotify, the JSON response will include a set of song tracks.  Each track will contain a field for name, artist and album.  For each track in the results list, Steveify will display the song name, artist and album.
 - Passed the state of a user’s custom playlist title and tracks from the App component down to the components that render them (Playlist to TrackList).  When a user adds songs from the search results list to their playlist, the addTrack method in App.js will update the state of a playlist parameter in App.js, and Steveify will render the song in the user's playlist.
 - Add/remove tracks to a playlist.  Created the addTrack method in App.js for adding a song from the search results track list to the user’s custom playlist.  Created the removeTrack method in App.js for removing a song from the user’s custom playlist.
@@ -14,7 +14,9 @@
 - Allow the user to change the name of their playlist and and save the updated value to the App component’s state.
 - Created the savePlaylist method in App.js that saves a user’s playlist to the user’s Spotify account and then resets the state of the playlist name and tracks array.
 - Created the search method which updates the searchResults parameter in the App component with a user’s search results.  Wrote the the logic that allows a user to enter a search parameter, receive a response from the Spotify API and then updates searchResults state with the results from a Spotify request.
-- Obtained a Spotify access token
+- Registered a Spotify application and created the getAccessToken method which will get a user's access token so they can make requests to the Spotify API.
+- Send a search request to the Spotify API.
+- Save a user's playslist to their Spotify account.
 
 ---
 
