@@ -1,3 +1,22 @@
+## Steveify React Web App
+
+- [Created the React Application (create-react-app)]
+- [Changed the title in index.html]
+- Removed the App.test.js and logo.svg files since they wouldn’t be used
+- Added a reset.css file in the public folder and linked it in index.html
+- Imported Google fonts in index.html
+- Updated favicon.ico
+- Created the static components (App, SearchBar, SearchResults, Playlist, Tracklist and Track) with accompanying CSS files, each in their own folders, located under /src/Components/
+- Passed the state of a search results parameter through the SearchResults and TrackList components to render an array of tracks.  When a user requests data from Spotify, the JSON response will include a set of song tracks.  Each track will contain a field for name, artist and album.  For each track in the results list, Steveify will display the song name, artist and album.
+- Passed the state of a user’s custom playlist title and tracks from the App component down to the components that render them (Playlist to TrackList).  When a user adds songs from the search results list to their playlist, a method will update the state of a playlist parameter in App.js, and Steveify will render the song in the user's playlist.
+- Add/remove tracks to a playlist.  Created the addTrack method in App.js for adding a song from the search results track list to the user’s custom playlist.  Created the removeTrack method in App.js for removing a song from the user’s custom playlist.
+- Added the addTrack and removeTrack methods to Track.js as handlers for the addTrack and removeTrack onClick events in renderAction.
+- Allow the user to change the name of their playlist and and save the updated value to the App component’s state.
+- Created the savePlaylist method in App.js that saves a user’s playlist to the user’s Spotify account and then resets the state of the playlist name and tracks array.
+- Created the search method which updates the searchResults parameter in the App component with a user’s search results.  Wrote the the logic that allows a user to enter a search parameter, receive a response from the Spotify API and then updates searchResults state with the results from a Spotify request.
+- Obtained a Spotify access token *****
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
@@ -300,7 +319,7 @@ In the WebStorm menu `Run` select `Edit Configurations...`. Then click `+` and s
 
 Start your app by running `npm start`, then press `^D` on macOS or `F9` on Windows and Linux or click the green debug icon to start debugging in WebStorm.
 
-The same way you can debug your application in IntelliJ IDEA Ultimate, PhpStorm, PyCharm Pro, and RubyMine. 
+The same way you can debug your application in IntelliJ IDEA Ultimate, PhpStorm, PyCharm Pro, and RubyMine.
 
 ## Formatting Code Automatically
 
@@ -1989,7 +2008,7 @@ If you’re using [Apache HTTP Server](https://httpd.apache.org/), you need to c
     RewriteRule ^ index.html [QSA,L]
 ```
 
-It will get copied to the `build` folder when you run `npm run build`. 
+It will get copied to the `build` folder when you run `npm run build`.
 
 If you’re using [Apache Tomcat](http://tomcat.apache.org/), you need to follow [this Stack Overflow answer](https://stackoverflow.com/a/41249464/4878474).
 
@@ -2429,7 +2448,7 @@ To resolve this:
 1. Open an issue on the dependency's issue tracker and ask that the package be published pre-compiled.
   * Note: Create React App can consume both CommonJS and ES modules. For Node.js compatibility, it is recommended that the main entry point is CommonJS. However, they can optionally provide an ES module entry point with the `module` field in `package.json`. Note that **even if a library provides an ES Modules version, it should still precompile other ES6 features to ES5 if it intends to support older browsers**.
 
-2. Fork the package and publish a corrected version yourself. 
+2. Fork the package and publish a corrected version yourself.
 
 3. If the dependency is small enough, copy it to your `src/` folder and treat it as application code.
 
