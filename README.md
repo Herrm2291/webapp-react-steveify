@@ -14,9 +14,9 @@
 - Allow the user to change the name of their playlist and and save the updated value to the App component’s state.
 - Created the savePlaylist method in App.js that saves a user’s playlist to the user’s Spotify account and then resets the state of the playlist name and tracks array.
 - Created the search method which updates the searchResults parameter in the App component with a user’s search results.  Wrote the the logic that allows a user to enter a search parameter, receive a response from the Spotify API and then updates searchResults state with the results from a Spotify request.
-- Obtained a Spotify access token *****
+- Obtained a Spotify access token
 
-***
+---
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
