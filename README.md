@@ -1,7 +1,7 @@
 ## Steveify React Web App
 
-- [Created the React Application (create-react-app)]
-- [Changed the title in index.html]
+- Created the React Application (create-react-app)
+- Changed the title in index.html
 - Removed the App.test.js and logo.svg files since they wouldn’t be used
 - Added a reset.css file in the public folder and linked it in index.html
 - Imported Google fonts in index.html
@@ -15,7 +15,6 @@
 - Created the savePlaylist method in App.js that saves a user’s playlist to the user’s Spotify account and then resets the state of the playlist name and tracks array.
 - Created the search method which updates the searchResults parameter in the App component with a user’s search results.  Wrote the the logic that allows a user to enter a search parameter, receive a response from the Spotify API and then updates searchResults state with the results from a Spotify request.
 - Obtained a Spotify access token *****
-
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
