@@ -14,9 +14,9 @@
 - Allow the user to change the name of their playlist and and save the updated value to the App component’s state.
 - Created the savePlaylist method in App.js that saves a user’s playlist to the user’s Spotify account and then resets the state of the playlist name and tracks array.
 - Created the search method which updates the searchResults parameter in the App component with a user’s search results.  Wrote the the logic that allows a user to enter a search parameter, receive a response from the Spotify API and then updates searchResults state with the results from a Spotify request.
-- Registered a Spotify application and created the getAccessToken method which will get a user's access token so they can make requests to the Spotify API.  This uses the [implicit grant](https://beta.developer.spotify.com/documentation/general/guides/authorization-guide/#implicit-grant-flow) authorization flow.
-- Send a search request to the Spotify API.
-- Save a user's playslist to their Spotify account.
+- Registered a Spotify application and created the getAccessToken method which will get a user's access token so they can make requests to the Spotify API.  This uses the [implicit grant](https://beta.developer.spotify.com/documentation/general/guides/authorization-guide/#implicit-grant-flow) authorization flow where values for the access token and expiration time are in the URL parameter after authentication.
+- Send a search using the user's access token to make a request to the Spotify API which passes the search term value then returns the response as a list of tracks in JSON format.
+- Save a user's playslist to their Spotify account. (NYI)
 
 ---
 
