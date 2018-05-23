@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import './Track.css';
 
 class Track extends Component {
@@ -8,10 +8,12 @@ class Track extends Component {
     this.removeTrack = this.removeTrack.bind(this);
   }
 
+  /* Handler for renderAction addTrack onClick event to pass this.props.track up to the App component */
   addTrack() {
     this.props.onAdd(this.props.track);
   }
 
+  /* Handler for renderAction removeTrack onClick event to pass this.props.track up to the App component */
   removeTrack() {
     this.props.onRemove(this.props.track);
   }
@@ -28,12 +30,12 @@ class Track extends Component {
     );
   }
 
-  /* ternary operator used to reduce code of this if/else statement which displays a + or a - dependant on the boolean return value from this.props.isRemoval */
+  /* Displays a + sign or a - sign dependent on the boolean return value from this.props.isRemovable */
   renderAction() {
-    if (this.props.isRemoval) {
+    if (this.props.isRemovable) {
       return <a className="Track-action" onClick={this.removeTrack}>-</a>;
     }
-      return <a className="Track-action" onClick={this.addTrack}>+</a>;
+    return <a className="Track-action" onClick={this.addTrack}>+</a>;
   }
 }
 
