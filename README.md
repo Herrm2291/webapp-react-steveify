@@ -16,7 +16,12 @@
 - Created the search method which updates the searchResults parameter in the App component with a user’s search results.  Wrote the the logic that allows a user to enter a search parameter, receive a response from the Spotify API and then updates searchResults state with the results from a Spotify request.
 - Registered a Spotify application and created the getAccessToken method which will get a user's access token so they can make requests to the Spotify API.  This uses the [implicit grant](https://beta.developer.spotify.com/documentation/general/guides/authorization-guide/#implicit-grant-flow) authorization flow where values for the access token and expiration time are in the URL parameter after authentication.
 - Send a search using the user's access token to make a request to the Spotify API which passes the search term value then returns the response as a list of tracks in JSON format.
-- Save a user's playlist to their Spotify account. (NYI)
+- Save a user's playlist to their Spotify account. This is not yet impmlemented but below, I have outlined the steps I believe need to be taken in order to make this final piece function.
+	- Create a savePlaylist() method that writes the user's custom playlist in Steveify to their Spotify account.  This method should accept a playlist name and an array of track URIs as arguments and will make the 3 requests to the Spotify API:
+		- GET current user's ID.
+		- POST a new playlist with the input name to the current user's Spotify account and receive the playlist ID back from the request.
+		- POST the track URIs to the newly-created playlist, referencing the current user's account (ID) and the new playlist (ID).
+	- Finally, update the savePlaylist() method in App.js to use the new Spotify.savePlaylist() method.
 
 ---
 
