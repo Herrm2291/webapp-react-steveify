@@ -16,14 +16,13 @@ class Playlist extends Component {
   render() {
     return (
       <div className="Playlist">
-        {/* Default value for the input field used to name playlist */}
-        <input defaultValue={'New Playlist'} />
-        {/* Passing the handleNameChange method via the onChange attribute
-        isRemovable set to true so that the option to remove (- sign) from playlist will be presented
+				{/* Passing the handleNameChange method via the onChange attribute
+				Default value for the input field used to name playlist */}
+        <input onChange={this.handleNameChange} defaultValue={'New Playlist'} />
+        {/* isRemovable set to true so that the option to remove (- sign) from playlist will be presented
         Passing the removeTrack method from App.js via the onRemove attribute
         Passing the playlist tracks from the playlistTracks array in App.js to the TrackList component via the tracks attribute */}
         <TrackList
-          onChange={this.handleNameChange}
           isRemovable={true}
           onRemove={this.props.onRemove}
           tracks={this.props.playlistTracks} />
