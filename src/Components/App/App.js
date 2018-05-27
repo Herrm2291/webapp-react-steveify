@@ -41,9 +41,15 @@ class App extends Component {
     this.setState({playlistName: name});
   }
 
-  /* savePlaylist generates an array of uri values (Spotify resource identifiers) called TrackURIs, from each track in the playlistTracks property */
+  /* savePlaylist generates an array of URI values (Spotify resource identifiers) called trackURIs, from each track in the playlistTracks property, resets the state of playlistName to New Playlist and playlistTracks to an empty array*/
   savePlaylist() {
-    let trackURIs = [this.state.playlistTracks.map(track => track.uri)];
+		let trackURIs = this.state.playlistTracks.map(track => track.uri);
+		Spotify.savePlaylist(this.state.playlistName, trackURIs).then(() => {
+      this.setState({
+        playlistName: 'New Playlist',
+        playlistTracks: []
+      });
+		});
   }
 
   /* search accepts term as the argument, receives a response from the Spotify API and updates the searchResults state with the results from a Spotify request */
