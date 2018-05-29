@@ -73,7 +73,7 @@ const Spotify = {
 
 		/* GET request that aquires the users id */
 		return fetch('https://api.spotify.com/v1/me', {
-      headers: headers
+      headers
 		}).then(response => {
 			return response.json();
     }).then(jsonResponse => {
