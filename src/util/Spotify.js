@@ -1,4 +1,4 @@
-const clientID = '7d94a5e1cace40a68652e53a5f195f6f'; /* clientID provided by the Spotify dashboard */
+const clientID = process.env.REACT_APP_CLIENTID; /* clientID provided by the Spotify dashboard and stored in the .env file */
 const redirectURI = 'http://localhost:3000/'; /* Redirect URI added to the Spotify application settings */
 let accessToken; /* Empty variable to hold the user's access token */
 
